@@ -1,0 +1,118 @@
+:root {
+    --col-main: rgb(240, 240, 240);
+    --col-main-dark: color-mix(in oklab, var(--col-main) 80%, grey);
+    --col-main-light: color-mix(in oklab, var(--col-main) 50%, white);
+
+    --col-favor: oklch(0.9407 0.037 130.24);
+    --col-abst: oklch(0.9407 0.0469 97.41);
+    --col-contra: oklch(0.9407 0.0913 20.12);
+}
+
+body {
+    background-color: var(--col-main-dark);
+}
+
+#main-div {
+    background-color: var(--col-main);
+    width: clamp(30rem, 50rem, 100vw);
+    min-height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.voto-congreso {
+    border: 2px solid color-mix(in oklab, var(--col-main-dark) 60%, black);
+    background-color: color-mix(in oklab, var(--col-main-dark) 90%, black);
+}
+
+.voto-congreso .card-header {
+    border-bottom: 1px solid color-mix(in oklab, var(--col-main-dark) 70%, black);
+    line-height: 1.2rem;
+}
+
+.card-header.result-Y {
+    background-color: var(--col-favor);
+}
+.card-header.result-N {
+    background-color: var(--col-contra);
+}
+
+.card-title {
+    font-size: 0.9rem;
+}
+
+.propuesta-result {
+    font-size: 0.8rem;
+    margin-right: 0.2rem;
+}
+
+.extra-data {
+    background-color: var(--col-main-dark);
+    border-bottom: 1px solid color-mix(in oklch, var(--col-favor) 70%, black);
+    font-size: 0.8rem;
+    line-height: 0.8rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    border-top-left-radius: 0.2rem;
+    border-top-right-radius: 0.2rem;
+}
+
+.main-header {
+    line-height: 1rem;
+}
+
+.partidos-favor, .partidos-abst, .partidos-contra {
+    border: 1px solid black;
+    border-radius: 0.3rem;
+    min-height: 2.5rem;
+}
+
+.partidos-favor {
+    background-color: var(--col-favor);
+    border-color: color-mix(in oklch, var(--col-favor) 70%, black);
+}
+.partidos-contra {
+    background-color: var(--col-contra);
+    border-color: color-mix(in oklch, var(--col-contra) 70%, black);
+}
+.partidos-abst {
+    background-color: var(--col-abst);
+    border-color: color-mix(in oklch, var(--col-abst) 70%, black);
+}
+
+.user-voting {
+    display: none;
+}
+
+.logo-partido, .logo-propone {
+    border: 1px solid rgba(0,0,0,0.6);
+    border-radius: 0.2rem;
+}
+
+.abs-means {
+    font-size: 0.5rem;
+}
+
+.disclaimers {
+    font-size: 0.7rem;
+    line-height: 0.7rem;
+    color: color-mix(in oklab, var(--col-main-dark) 80%, black);
+}
+
+.propuesta-ref {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.notes {
+    font-size: 0.7rem;
+    line-height: 0.9rem;
+}
+
+.voto-type-M, .key-M {background-color: rgba(220,220,220, 1);}
+.voto-type-DL, .voto-type-RDL, .key-DL {background-color: oklch(0.8843 0.101 99.88);}
+.voto-type-PNL, .key-PNL {background-color: oklch(0.8947 0.0329 243.56);}
+.voto-type-PL, .key-PL {background-color: oklch(0.862 0.0505 60.89);}
+
+.key-colored-span {
+    border-radius: 0.2rem;
+}

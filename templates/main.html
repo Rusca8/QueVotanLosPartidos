@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="main-div" class="p-2">
+    <h4 class="text-center mt-3 mb-2">Qué votan los partidos?</h4>
+    <p class="text-center small mb-2">
+        A la izquierda del título de la propuesta podemos ver si se aprobó o no, debajo de ella los votos de cada partido.<br>
+        En la cabecera de la tarjeta salen el autor y otros metadatos (por si queréis ir a comprobar o a investigar más).
+    </p>
+    <p class="small text-center mb-2">
+        <span class="small">✅ A favor · ❌ En contra · ✴️ <span class="abs-means">*️⃣</span> Abstención (no afectaba al resultado) · ✴️ <span class="abs-means">✅</span> / ✴️ <span class="abs-means">❌</span>  Abstención (marcó la diferencia) </span>
+    </p><p class="disclaimers text-center mx-3 mb-2">
+        <span class="small">Los partidos dentro de los votos están puestos de izquierda a derecha más o menos en función de cuánta sensación me da a mí de que hacen cosas de izquierda o de derecha. Las abstenciones especifican si el partido podía cambiar el resultado de la votación o si su voto no importaba, porque los partidos a veces se abstienen sabiendo que eso no cambiará nada, sólo para dar a entender que ellos habrían hecho las cosas de otra manera (i.e. no podemos saber si fue para dejar constancia de que querían que la ley llegara más lejos, o para dejar constancia de que creían que llegaba demasiado lejos). En cambio, otras veces la abstención es justamente lo que hace que ganen unos o los otros, por lo que en esos casos podemos leerla como un posicionamiento del partido a favor de la opción ganadora.</span>
+    </p>
+    <p class="notes text-center mx-3"><i>
+        En Cataluña la distinción entre Podemos y Sumar no es tan clara como en la mayoría del estado, porque ese espacio lo ocupa sobre todo Comuns, que ha formado parte de ambos pero ha conservado un poco también su identidad propia. Para el 29N Comuns en sí irá como Frente Amplio, y el resto de Podemos se ha apuntado a las listas de ERC.
+    </i></p>
+    <hr>
+    <p class="small text-center">
+        <span class="small">
+            En una <span class="key-M px-1 key-colored-span">Moción</span> votan si están de acuerdo o no sobre un tema.<br>
+            En una <span class="key-PNL px-1 key-colored-span">Proposición/Proyecto No de Ley</span> votan si hay que hacer una ley en esa dirección.<br>
+            En una <span class="key-PL px-1 key-colored-span">Proposición/Proyecto de Ley</span> votan si la ley que han escrito tiene que empezar a usarse.<br>
+            En un <span class="key-DL px-1 key-colored-span">Decreto Ley</span> votan si la (casi)ley que han escrito (con urgencia) tiene que empezar a usarse.
+        </span>
+    </p>
+
+    {% for id_, propuesta in votos.items()|sort(attribute="1.sortable_date", reverse=True) %}
+        {% if propuesta.get("blocktype") == "congreso" %}
+        {% set YAN = propuesta.get("YAN", [0,0,0]) %}
+        {% set abs_meaning_defined = True if YAN[0] or YAN[1] or YAN[2] else False %}
+        {% set result = propuesta.get("result", "?") %}
+        {% set abs_means = "Y" if result == "Y" and YAN[0]-YAN[2]<=YAN[1] else "N" if result == "N" and YAN[2]-YAN[0]<=YAN[1] else "X" %}
+    <div class="card voto-{{propuesta.blocktype}} mb-2">
+        <div class="card-header result-{{propuesta.result}} py-0 px-0">
+            <div class="extra-data voto-type-{{propuesta.tipo}} px-1">
+                {% for autor in propuesta.propone or [] %}
+                {% if autor not in "Gobierno" %}
+                <img class="logo-propone" width="14rem" src="./static/img/logo_{{autor}}.png" alt="??">
+                {% endif %}
+                <span class="propone small">{{autor}}</span>
+                {% endfor %}
+                · <span class="tipo small">{{propuesta.tipo_texto}}</span>
+                <span class="fecha small">{{propuesta.fecha}}</span>
+                {% if propuesta.ref %}<span class="small propuesta-ref">({{propuesta.ref}})</span>{% endif %}
+            </div>
+            <div class="main-header px-2 py-1">
+                {% if propuesta.result %}
+                <span class="propuesta-result">
+                    {{'✅' if propuesta.result == 'Y' else '❌' if propuesta.result == 'N' else ''}}
+                </span>
+                {% endif %}
+                <b class="card-title">{{propuesta.name}}</b>
+                <div class="small">{{propuesta.desc}}</div>
+            </div>
+        </div>
+        <div class="card-body py-0 px-0">
+            <div class="user-voting">
+                <table class="w-100">
+                    <tr>
+                        <td><div class="px-1 py-1 partidos-favor">✅ A favor</div></td>
+                        <td class="px-1"><div class="px-1 py-1 partidos-abst">✴️ Lo que digan los demás</div></td>
+                        <td><div class="px-1 py-1 partidos-contra">❌ En contra</div></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="real-votes">
+                {% with votos = propuesta.votos %}
+                <table class="w-100">
+                    <tr>
+                        <td><div class="px-1 py-1 partidos-favor"><span class="pl-1 pr-2">✅</span>
+                            {% with voto_filtrado = "Y" %}
+                                {% include '/blocks/logos_partidos.html' %}
+                            {% endwith %}
+                        </div></td>
+                        {% if YAN[1] %}
+                        <td><div class="px-1 py-1 partidos-abst"><span class="pl-1 pr-2">✴️ <span class="abs-means">
+                            {{'' if not abs_meaning_defined else '✅' if abs_means == 'Y' else '❌' if abs_means == "N" else '*️⃣'}}</span></span>
+                            {% with voto_filtrado = "A" %}
+                                {% include '/blocks/logos_partidos.html' %}
+                            {% endwith %}
+                        </div></td>
+                        {% endif %}
+                        <td><div class="px-1 py-1 partidos-contra"><span class="pl-1 pr-2">❌</span>
+                            {% with voto_filtrado = "N" %}
+                                {% include '/blocks/logos_partidos.html' %}
+                            {% endwith %}
+                        </div></td>
+                    </tr>
+                </table>
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div>{{propuesta}}</div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

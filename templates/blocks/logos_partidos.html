@@ -1,0 +1,8 @@
+{# Logos de partidos que han votado X #}
+
+{% set votos = votos or {} %}
+{% for partido in ["Podemos", "ERC", "Sumar", "PSOE", "Junts", "PP", "VOX"] %}
+{% if partido in votos and votos[partido] == voto_filtrado %}
+    <img class="logo-partido" width="30rem" src="./static/img/logo_{{partido}}.png" alt="{{partido}}">
+{% endif %}
+{% endfor %}

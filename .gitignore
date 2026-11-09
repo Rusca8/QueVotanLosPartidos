@@ -1,0 +1,12 @@
+# cache de pythonanywhere
+*.pyc
+
+#fitxers ocults (.coses)
+.*
+!.gitignore
+
+# ignore images
+/static/img/
+
+#venv
+/.venvs
