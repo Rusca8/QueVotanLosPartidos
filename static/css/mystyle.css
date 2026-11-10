@@ -14,7 +14,7 @@ body {
 
 #main-div {
     background-color: var(--col-main);
-    width: clamp(30rem, 50rem, 100vw);
+    width: clamp(30rem, 48rem, 100vw);
     min-height: 100vh;
     margin-left: auto;
     margin-right: auto;
