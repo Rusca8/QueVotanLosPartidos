@@ -112,6 +112,8 @@ body {
 .voto-type-DL, .voto-type-RDL, .key-DL {background-color: oklch(0.8843 0.101 99.88);}
 .voto-type-PNL, .key-PNL {background-color: oklch(0.8947 0.0329 243.56);}
 .voto-type-PL, .key-PL {background-color: oklch(0.862 0.0505 60.89);}
+.voto-type-E, .key-E {background-color: oklch(0.862 0.0789 322.94);}
+.voto-type-ET, .key-ET {background-color: oklch(0.862 0.0789 322.94);}
 
 .key-colored-span {
     border-radius: 0.2rem;

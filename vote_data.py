@@ -18,6 +18,8 @@ def get_vote_type_text(vote):
             return "Moción"
         case "E":
             return "Enmienda"
+        case "ET":
+            return "Enmienda a la Totalidad"
         case "RDL":
             return "Real Decreto Ley"
         case "DL":
@@ -491,6 +493,90 @@ votos_congreso = {
                 "VOX": "N",
             },
     },
+    22: {
+        "name": "Impulsar medidas de educación sexual, afectiva y emocional en las aulas",
+        "desc": "Materiales didácticos, protocolos contra la violencia sexual y el ciberbullying y formación de profesorado.",
+        "ámbitos": ["Salud", "Igualdad"],
+        "propone": ["PSOE"],
+        "ref": "162/000796",
+        "tipo": "PNL",
+        "fecha": " 20/05/2026",
+        "urls": {"congreso": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=162%2F000796",
+                 "ECM": "", "QHLD": ""},
+        "YAN": [172, 7, 170],
+        "votos": {
+                "Podemos": "Y",
+                "Sumar": "Y",
+                "ERC": "Y",
+                "PSOE": "Y",
+                "Junts": "A",
+                "PP": "N",
+                "VOX": "N",
+            },
+    },
+    23: {
+        "name": "Rechazar el bloqueo económico, comercial y financiero de EUA contra Cuba",
+        "desc": "Ignorar las órdenes de Trump (que prohibe comerciar con Cuba y quiere dejarla sin comida, medicamentos ni energía).",
+        "ámbitos": ["Internacional"],
+        "propone": ["Sumar", "ERC", "Podemos"],
+        "ref": "161/002991",
+        "tipo": "PNL",
+        "fecha": "10/02/2026",
+        "urls": {"congreso": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=162%2F000697",
+                 "ECM": "", "QHLD": ""},
+        "YAN": [163, 13, 170],
+        "votos": {
+                "Podemos": "Y",
+                "Sumar": "Y",
+                "ERC": "Y",
+                "PSOE": "Y",
+                "Junts": "A",
+                "PP": "N",
+                "VOX": "N",
+            },
+    },
+    24: {
+        "name": "Bajar temporalmente el IVA de los alimentos",
+        "desc": "No limita el margen de beneficio de las empresas que los venden (se podrían quedar ellas la diferencia ahorrada).",
+        "ámbitos": ["Alimentación"],
+        "propone": ["PP"],
+        "ref": "162/000647",
+        "tipo": "PNL",
+        "fecha": "22/11/2025",
+        "urls": {"congreso": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=162%2F000647",
+                 "ECM": "", "QHLD": ""},
+        "YAN": [178, 10, 159],
+        "votos": {
+                "Podemos": "A",
+                "Sumar": "N",
+                "ERC": "N",
+                "PSOE": "N",
+                "Junts": "Y",
+                "PP": "Y",
+                "VOX": "Y",
+            },
+    },
+    25: {
+        "name": "Bloquear la ley de Violencia Vicaria",
+        "desc": "Impedir que se siga creando una ley orientada a proteger a hijos y mascotas de las víctimas de violencia de género.",
+        "ámbitos": ["Igualdad"],
+        "propone": ["VOX"],
+        "ref": "121/000106",
+        "tipo": "ET",
+        "fecha": "17/07/2026",
+        "urls": {"congreso": "",
+                 "ECM": "", "QHLD": ""},
+        "YAN": [34, 0, 312],
+        "votos": {
+                "Podemos": "N",
+                "Sumar": "N",
+                "ERC": "N",
+                "PSOE": "N",
+                "Junts": "N",
+                "PP": "N",
+                "VOX": "Y",
+            },
+    },
 }
 
 voto_congreso_sample = {
@@ -503,7 +589,8 @@ voto_congreso_sample = {
         "ref": "",
         "tipo": "",
         "fecha": "",
-        "urls": {"congreso": "", "ECM": "", "QHLD": ""},
+        "urls": {"congreso": "",
+                 "ECM": "", "QHLD": ""},
         "YAN": [0, 0, 0],
         "votos": {
                 "Podemos": "",
