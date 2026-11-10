@@ -29,7 +29,11 @@
             En un <span class="key-DL px-1 key-colored-span">Decreto Ley</span> votan si la (casi)ley que han escrito (con urgencia) tiene que empezar a usarse.
         </span>
     </p>
-
+    <hr>
+    <h5 class="text-center mb-0">Cronología de iniciativas</h5>
+    <p class="small text-center mt-0 mb-2">
+        Tarjetas ordenadas de más reciente a más antigua
+    </p>
     {% for id_, propuesta in votos.items()|sort(attribute="1.sortable_date", reverse=True) %}
         {% if propuesta.get("blocktype") == "congreso" %}
         {% set YAN = propuesta.get("YAN", [0,0,0]) %}
@@ -101,5 +105,9 @@
     <div>{{propuesta}}</div>
     {% endif %}
     {% endfor %}
+
+
+    <p class="small text-center">Si quieres más información, en <a href="https://guiaelectoral.es/">GuíaElectoral</a> tienen una base de datos muy bien ordenada.</p>
 </div>
+
 {% endblock %}
