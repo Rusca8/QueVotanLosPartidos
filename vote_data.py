@@ -640,6 +640,27 @@ votos_congreso = {
                 "VOX": "N",
             },
     },
+    29: {
+        "name": "Que los contratos de alquiler sean indefinidos",
+        "desc": "Que se renueven automáticamente y que el propietario tenga que pagarte a ti 12 meses si te echa sin justificación.",
+        "ámbitos": ["Vivienda"],
+        "propone": ["Gobierno"],
+        "ref": "130/000056",
+        "tipo": "RDL",
+        "fecha": "30/09/2026",
+        "urls": {"congreso": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=130/000056",
+                 "ECM": "", "QHLD": ""},
+        "YAN": [166, 0, 184],
+        "votos": {
+                "Podemos": "Y",
+                "Sumar": "Y",
+                "ERC": "Y",
+                "PSOE": "Y",
+                "Junts": "N",
+                "PP": "N",
+                "VOX": "N",
+            },
+    },
 }
 
 voto_congreso_sample = {
