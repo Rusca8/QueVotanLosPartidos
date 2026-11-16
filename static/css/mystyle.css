@@ -7,7 +7,7 @@
     --col-abst: oklch(0.9407 0.0469 97.41);
     --col-contra: oklch(0.9407 0.0913 20.12);
 
-    --share-sq-r: 30rem;
+    --share-sq-r: 25rem;
 }
 
 body {
@@ -150,29 +150,31 @@ body {
 }
 
 #share-square-header.card-header {
-    height: 12%;
+    height: 13%;
     border-top-left-radius: 0.4rem;
     border-top-right-radius: 0.4rem;
+    font-size: 1rem;
+    line-height: 1rem;
 }
 
 .ssq-partidos {
-    height: 30%;
+    height: 29%;
 }
 
 .ssq-partidos img{
-    width: 3.1rem;
+    width: 2.5rem;
 }
 
 #share-square-main .propuesta-result {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
 }
 #share-square-main .card-title {
-    font-size: 1.6rem;
-    line-height: 1.5rem;
+    font-size: 1.5rem;
+    line-height: 1.4rem;
 }
 #share-square-main .card-desc {
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
 }
 
 .hidden {
