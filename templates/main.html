@@ -9,6 +9,8 @@
         $("#share-square-header").addClass("voto-type-" + $("#extra-data-"+id).data("type"));
         $("#share-square-header .ref-split").html("<br>");
         $("#share-square-main").html($("#main-header-"+id).html());
+        $("#share-square-main").attr("class", "py-2 px-3");
+        $("#share-square-main").addClass("result-"+ $("#voto-header-"+id).data("result"));
         $("#share-square-favor").html("✅");
         $("#share-square-abst").html("✴️");
         $("#share-square-contra").html("❌");
@@ -54,6 +56,8 @@
         </span>
     </p>
     <hr>
+
+
     <h5 class="text-center mb-0">Cronología de iniciativas</h5>
     <p class="small text-center mt-0 mb-2">
         Tarjetas ordenadas de más reciente a más antigua
@@ -65,7 +69,7 @@
         {% set result = propuesta.get("result", "?") %}
         {% set abs_means = "Y" if result == "Y" and YAN[0]-YAN[2]<=YAN[1] else "N" if result == "N" and YAN[2]-YAN[0]<=YAN[1] else "X" %}
     <div id="voto-{{id_}}" class="card voto-{{propuesta.blocktype}} mb-2" onclick="load_share_square('{{id_}}');">
-        <div class="card-header result-{{propuesta.result}} py-0 px-0">
+        <div id="voto-header-{{id_}}" class="card-header result-{{propuesta.result}} py-0 px-0" data-result="{{propuesta.result}}">
             <div id="extra-data-{{id_}}" class="extra-data voto-type-{{propuesta.tipo}} px-1" data-type="{{propuesta.tipo}}">
                 {% for autor in propuesta.propone or [] %}
                 {% if autor not in "Gobierno" %}
@@ -140,7 +144,7 @@
     <div id="share-square-header" class="card-header">
         METADATOS DE LA PROPUESTA
     </div>
-    <div id="share-square-main" class="py-2 px-3">
+    <div id="share-square-main">
         HOLA
     </div>
     <div id="share-square-bottom">

@@ -32,10 +32,10 @@ body {
     line-height: 1.2rem;
 }
 
-.card-header.result-Y {
+.card-header.result-Y, #share-square-main.result-Y {
     background-color: var(--col-favor);
 }
-.card-header.result-N {
+.card-header.result-N, #share-square-main.result-N {
     background-color: var(--col-contra);
 }
 
