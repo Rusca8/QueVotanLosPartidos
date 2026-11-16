@@ -6,6 +6,8 @@
     --col-favor: oklch(0.9407 0.037 130.24);
     --col-abst: oklch(0.9407 0.0469 97.41);
     --col-contra: oklch(0.9407 0.0913 20.12);
+
+    --share-sq-r: 30rem;
 }
 
 body {
@@ -117,4 +119,62 @@ body {
 
 .key-colored-span {
     border-radius: 0.2rem;
+}
+
+#share-square-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(200, 200, 200, 0.8);
+}
+
+#share-square {
+    top: calc(50vh - var(--share-sq-r) * 0.5);  /* pycharm is wrong on the error */
+    left: calc(50vw - var(--share-sq-r) * 0.5);
+    width: var(--share-sq-r);
+    height: var(--share-sq-r);
+    position: fixed;
+    border-radius: 0.5rem;
+}
+
+#share-square-bottom {
+    height: 50%;
+    border-top: 1px solid color-mix(in oklab, var(--col-main-dark) 70%, black);
+}
+
+#share-square-main {
+    height: 40%;
+    background-color: white;
+}
+
+#share-square-header.card-header {
+    height: 12%;
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius: 0.4rem;
+}
+
+.ssq-partidos {
+    height: 30%;
+}
+
+.ssq-partidos img{
+    width: 3.1rem;
+}
+
+#share-square-main .propuesta-result {
+    font-size: 1.6rem;
+}
+#share-square-main .card-title {
+    font-size: 1.6rem;
+    line-height: 1.5rem;
+}
+#share-square-main .card-desc {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.hidden {
+    visibility: hidden;
 }

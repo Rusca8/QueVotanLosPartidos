@@ -164,7 +164,7 @@ votos_congreso = {
     },
     6: {
         "name": "Que las personas con menos dinero paguen menos por los medicamentos",
-        "desc": "",
+        "desc": "Que la cantidad a pagar sea más gradual según los ingresos y limitar el máximo mensual que te pueden cobrar.",
         "ámbitos": ["Salud"],
         "propone": ["Gobierno"],
         "ref": "130/000042",
