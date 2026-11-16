@@ -123,16 +123,16 @@ body {
 
 #share-square-background {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
     background-color: rgba(200, 200, 200, 0.8);
 }
 
 #share-square {
-    top: calc(50vh - var(--share-sq-r) * 0.5);  /* pycharm is wrong on the error */
-    left: calc(50vw - var(--share-sq-r) * 0.5);
+    top: calc(50% - var(--share-sq-r) * 0.5);  /* pycharm is wrong on the error */
+    left: calc(50% - var(--share-sq-r) * 0.5);
     width: var(--share-sq-r);
     height: var(--share-sq-r);
     position: fixed;
