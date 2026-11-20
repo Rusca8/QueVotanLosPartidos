@@ -20,6 +20,8 @@ def get_vote_type_text(vote):
             return "Enmienda"
         case "ET":
             return "Enmienda a la Totalidad"
+        case "TC":
+            return "Toma en Consideración"
         case "RDL":
             return "Real Decreto Ley"
         case "DL":
@@ -458,7 +460,7 @@ votos_congreso = {
         "ámbitos": ["Corrupción"],
         "propone": ["Sumar"],
         "ref": "122/000086",
-        "tipo": "PL",
+        "tipo": "TC",
         "fecha": "04/04/2024",
         "urls": {"congreso": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000086",
                  "ECM": "", "QHLD": ""},
@@ -583,7 +585,7 @@ votos_congreso = {
         "ámbitos": ["Justicia"],
         "propone": ["VOX"],
         "ref": "122/000175",
-        "tipo": "PL",
+        "tipo": "TC",
         "fecha": "25/03/2025",
         "urls": {"congreso": "https://www.congreso.es/es/busqueda-de-iniciativas?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XV&_iniciativas_id=122%2F000175",
                  "ECM": "", "QHLD": ""},
@@ -659,6 +661,28 @@ votos_congreso = {
                 "Junts": "N",
                 "PP": "N",
                 "VOX": "N",
+            },
+    },
+    30: {
+        "name": "Que tengamos 18 psicólogos y 18 psiquiatras públicos por cada 100.000 habitantes",
+        "desc": "Y medidas para la prevención del suicidio, la salud mental en el trabajo y la prevención en niños y adolescentes.",
+        "extra": "Caducó porque varios de los otros partidos se pasaron más de 2 años ampliando el plazo de modificaciones (PSOE podía haberlo desbloqueado pero no quiso).",
+        "ámbitos": ["Salud"],
+        "propone": ["Unidas_Podemos"],
+        "ref": "122/000158",
+        "tipo": "TC",
+        "fecha": "10/09/2021",
+        "urls": {"congreso": "https://www.congreso.es/es/proposiciones-de-ley?p_p_id=iniciativas&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_iniciativas_mode=mostrarDetalle&_iniciativas_legislatura=XIV&_iniciativas_id=122%2F000158",
+                 "Newtral": "https://www.newtral.es/proposicion-ley-salud-mental-unidas-podemos/20210928/",
+                 "ECM": "", "QHLD": ""},
+        "YAN": [194, 140, 10],
+        "votos": {
+                "Unidas_Podemos": "Y",
+                "ERC": "Y",
+                "PSOE": "Y",
+                "Ciudadanos": "Y",
+                "PP": "A",
+                "VOX": "A",
             },
     },
 }

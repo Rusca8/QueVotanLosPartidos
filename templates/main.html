@@ -17,6 +17,10 @@
         $("#share-square-favor").html($("#favor-"+id).html());
         $("#share-square-abst").html($("#abst-"+id).html());
         $("#share-square-contra").html($("#contra-"+id).html());
+        if($("#share-square-main .desc-extra").length){
+            $("#share-square-main .card-title").addClass("has-extra");
+            $("#share-square-main .propuesta-result").addClass("has-extra");
+        }
         $("#share-square-background").removeClass("hidden");
         $("#share-square").removeClass("hidden");
     }
@@ -51,6 +55,7 @@
             En una <span class="key-E px-1 key-colored-span">Enmienda</span> votan para cambiar partes de la ley.<br>
             En una <span class="key-ET px-1 key-colored-span">Enmienda a la Totalidad</span> votan para acabar con la ley antes de votarla (o para reescribirla entera).<br>
             En una <span class="key-PNL px-1 key-colored-span">Proposición/Proyecto No de Ley</span> votan si hay que hacer una ley en esa dirección.<br>
+            En una <span class="key-TC px-1 key-colored-span">Toma en Consideración</span> votan si la ley que han escrito puede empezar el proceso de ser aceptada.<br>
             En una <span class="key-PL px-1 key-colored-span">Proposición/Proyecto de Ley</span> votan si la ley que han escrito tiene que empezar a usarse.<br>
             En un <span class="key-DL px-1 key-colored-span">Decreto Ley</span> votan si la (casi)ley que han escrito (con urgencia) tiene que empezar a usarse.
         </span>
@@ -75,7 +80,7 @@
                 {% if autor not in "Gobierno" %}
                 <img class="logo-propone" width="14rem" src="./static/img/logo_{{autor}}.png" alt="??">
                 {% endif %}
-                <span class="propone small">{{autor}}</span>
+                <span class="propone small">{{autor|replace("_", " ")}}</span>
                 {% endfor %}
                 <span class="autor-dot"> · </span><span class="tipo small">{{propuesta.tipo_texto}}</span>
                 <span class="ref-split"></span>
@@ -90,6 +95,7 @@
                 {% endif %}
                 <b class="card-title">{{propuesta.name}}</b>
                 <div class="card-desc small">{{propuesta.desc}}</div>
+                {% if propuesta.extra %}<div class="desc-extra py-1"><i>{{propuesta.extra}}</i></div>{% endif %}
             </div>
         </div>
         <div class="card-body py-0 px-0">
